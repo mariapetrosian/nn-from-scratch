@@ -84,7 +84,7 @@ class NeuralNetwork:
             output_delta = hidden_delta.dot(self.layers[i]["weights"].T)
 
     def bce_loss(self, y: np.ndarray, predictions: np.ndarray) -> float:
-        predictions = np.clip(predictions, 1e-7, 1 - 1e-7)
+        predictions = np.clip(predictions, 1e-7, 1 - 1e-7) #to prevent log(0) errors
         loss = -np.mean(y * np.log(predictions) + (1 - y) * np.log(1 - predictions))
         return loss
 
