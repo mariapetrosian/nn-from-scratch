@@ -19,7 +19,11 @@ def read_root() -> Dict[str, str]:
     return {"version": "Heart-disease detector 0.1", "status": "OK"}
 
 @app.post('/predict')
+<<<<<<< HEAD
 def predict(data: PredictionRequest) -> Dict[str, float]:
+=======
+def predict(data: PredictionRequest)-> Dict[str, int]:
+>>>>>>> 686330e2935c90571c1e001cfa166cfe98252d01
     features = np.array(data.features).reshape(1, -1)
     prediction = model.predict(features)
     raw_output = model.forward(features)
