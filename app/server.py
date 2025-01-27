@@ -18,7 +18,7 @@ def read_root() -> Dict[str, str]:
     return {'message': 'Heart disease risk model API'}
 
 @app.post('/predict')
-def predict(data: PredictionRequest):
+def predict(data: PredictionRequest)-> Dict[str, int]:
     features = np.array(data.features).reshape(1, -1)
     prediction = model.predict(features) 
     class_name = int(prediction[0][0])
